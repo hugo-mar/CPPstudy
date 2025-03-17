@@ -1,12 +1,15 @@
-Aula 1: Namespaces em C++
++---------------------------+
+| Aula 1: Namespaces em C++ |
++---------------------------+
 
 1. Conceito geral
 
     Namespaces permitem organizar código (variáveis, funções, classes, etc.) num espaço lógico, evitando conflitos de nomes.
     São especialmente úteis em grandes projetos onde os nomes podem entrar em conflito.
 
-Principais conceitos:
-1. Sintaxe básica
+-------------------------------------------------------
+
+2. Sintaxe básica
 
 Exemplo simplificado:
 
@@ -17,12 +20,16 @@ namespace NomeNamespace {
     }
 }
 
-2. Namespace std
+-------------------------------------------------------
+
+3. Namespace std
 
     O namespace mais utilizado em C++ é std, que contém todas as funções e classes padrão da linguagem.
     Exemplo de uso frequente: std::cout, std::vector, etc.
 
-3. Operador ::
+-------------------------------------------------------
+
+4. Operador ::
 
     O operador :: é chamado operador de resolução de escopo.
     Usa-se para indicar explicitamente a qual namespace, classe ou enum um identificador pertence.
@@ -31,7 +38,9 @@ Exemplo:
 
 std::cout << "Olá, mundo!" << std::endl;
 
-3. Namespaces aninhados
+-------------------------------------------------------
+
+5. Namespaces aninhados
 
     Podemos colocar um namespace dentro de outro para criar uma hierarquia lógica:
 
@@ -44,7 +53,9 @@ namespace externo {
 // Uso:
 externo::interno::valor;
 
-4. Resolução global
+-------------------------------------------------------
+
+6. Resolução global
 
     É possível usar :: no início para acessar símbolos no escopo global explicitamente, por exemplo:
 
@@ -55,6 +66,8 @@ int main() {
     std::cout << "Local: " << variavel << "\n";
     std::cout << "Global: " << ::variavel << "\n";
 }
+
+-------------------------------------------------------
 
 Exemplo Completo do Código dado na Aula:
 
@@ -99,6 +112,8 @@ int main( void ) {
 
 	return (0);
 }
+
+-------------------------------------------------------
 
 Resumo rápido:
 
