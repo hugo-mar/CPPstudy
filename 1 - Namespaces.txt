@@ -1,0 +1,108 @@
+Aula 1: Namespaces em C++
+
+1. Conceito geral
+
+    Namespaces permitem organizar código (variáveis, funções, classes, etc.) num espaço lógico, evitando conflitos de nomes.
+    São especialmente úteis em grandes projetos onde os nomes podem entrar em conflito.
+
+Principais conceitos:
+1. Sintaxe básica
+
+Exemplo simplificado:
+
+namespace NomeNamespace {
+    int variavel = 10;
+    void funcao() {
+        // código
+    }
+}
+
+2. Namespace std
+
+    O namespace mais utilizado em C++ é std, que contém todas as funções e classes padrão da linguagem.
+    Exemplo de uso frequente: std::cout, std::vector, etc.
+
+3. Operador ::
+
+    O operador :: é chamado operador de resolução de escopo.
+    Usa-se para indicar explicitamente a qual namespace, classe ou enum um identificador pertence.
+
+Exemplo:
+
+std::cout << "Olá, mundo!" << std::endl;
+
+3. Namespaces aninhados
+
+    Podemos colocar um namespace dentro de outro para criar uma hierarquia lógica:
+
+namespace externo {
+    namespace interno {
+        int valor = 100;
+    }
+}
+
+// Uso:
+externo::interno::valor;
+
+4. Resolução global
+
+    É possível usar :: no início para acessar símbolos no escopo global explicitamente, por exemplo:
+
+int variavel = 42;
+
+int main() {
+    int variavel = 5;
+    std::cout << "Local: " << variavel << "\n";
+    std::cout << "Global: " << ::variavel << "\n";
+}
+
+Exemplo Completo do Código dado na Aula:
+
+#include <stdio.h>
+
+// Variáveis e funções no namespace global
+int gl_var = 1;
+int f(void) { return 2; }
+
+// Namespace Foo
+namespace Foo {
+	int gl_var = 3;
+	int f(void) { return 4; }
+}
+
+// Namespace Bar
+namespace Bar {
+	int gl_var = 42;
+	int	f( void ) { return 84; }
+}
+
+// Alias para namespace Bar
+namespace Muf = Bar;
+
+int main( void ) {
+
+	// Namespace global
+	printf( "gl_var:           [%d]\n", gl_var );
+	printf( "f():              [%d]\n\n", f() );
+
+	// Namespace Bar
+	printf( "Bar::gl_var:      [%d]\n", Bar::gl_var );
+	printf( "Bar::f():        [%d]\n\n", Bar::f() );
+
+	// Namespace com alias (Muf é alias para Bar)
+	printf( "Muf::gl_var:     [%d]\n", Muf::gl_var );
+	printf( "Muf::f():        [%d]\n\n", Muf::f() );
+
+	// Acesso explícito ao namespace global usando operador ::
+	printf( "::gl_var:        [%d]\n", ::gl_var );
+	printf( "::f():           [%d]\n\n", ::f() );
+
+	return (0);
+}
+
+Resumo rápido:
+
+    Namespace: Agrupamento lógico de símbolos.
+    Aninhados: Podem existir namespaces dentro de namespaces.
+    Operador '::': Serve para aceder explicitamente símbolos em namespaces específicos ou globais.
+    Namespace std: Inclui elementos essenciais para programação em C++.
