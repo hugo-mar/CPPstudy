@@ -1,0 +1,85 @@
++----------------------------------------------------------+
+| Aula 2: Fluxos de Entrada e Saída em C++ (stdio streams) |
++----------------------------------------------------------+
+
+Introdução aos objetos mágicos cin e cout
+
+O C++ introduz dois objetos especiais que representam os fluxos padrão de entrada e saída:
+
+    std::cin – corresponde ao fluxo padrão de entrada (stdin)
+    std::cout – corresponde ao fluxo padrão de saída (stdout)
+
+Estes objetos facilitam significativamente a manipulação de dados, assemelhando-se a descritores de ficheiros simplificados.
+
+-------------------------------------------------------
+
+Operadores para fluxos de dados
+
+C++ utiliza operadores específicos para redirecionar fluxos de dados:
+
+    << (back arrows) – usado com std::cout para enviar dados para o output padrão.
+    >> (forward arrows) – usado com std::cin para receber dados do input padrão.
+
+-------------------------------------------------------
+
+Exemplo simples com cin e cout
+
+Exemplo completo comentado:
+
+#include <iostream>
+
+int main(void) {
+
+    char buff[512];  // buffer para armazenar a entrada do utilizador
+
+    // Redirecionar texto para o stdout usando o operador <<
+    std::cout << "Hello World !" << std::endl;
+    // O objeto especial "endl" (end-line) equivale à quebra de linha '\n' (ou "\r\n" no Windows)
+
+    // Solicita ao utilizador uma palavra (input)
+    std::cout << "Input a word: ";
+
+    // Recebe o input do utilizador com o operador >> e armazena em "buff"
+    std::cin >> buff;
+
+    // Exibe o input armazenado
+    std::cout << "You entered: [" << buff << "]" << std::endl;
+
+    return 0;
+}
+
+-------------------------------------------------------
+
+Observações adicionais importantes:
+
+    O objeto std::endl:
+        Representa uma quebra de linha.
+        É equivalente a '\n' em sistemas Unix/Linux ou "\r\n" no Windows.
+        Além disso, endl garante a limpeza (flush) do buffer de saída.
+
+    O buffer usado para std::cin:
+        Neste exemplo foi usado um array estático (char buff[512];), que limita a entrada.
+        Para maior segurança em código real, é preferível usar uma std::string (veremos mais tarde).
+        
+-------------------------------------------------------
+
+Recursos úteis indicados na aula:
+
+    O site cplusplus.com é altamente recomendado como referência:
+        Consultar especialmente a documentação de iostream.
+    Atenção às abas de versões C++98 e C++11:
+        Esta piscina utiliza C++98, por ser mais simples para aprender o básico.
+
+-------------------------------------------------------
+
+Resumo rápido desta aula:
+
++---------------+-----------------------------------------------+
+| Conceito	| Explicação breve				|
++---------------+-----------------------------------------------+
+| std::cin	| Fluxo de entrada padrão (stdin).		|
+| std::cout	| Fluxo de saída padrão (stdout).		|
+| Operador <<	| Enviar (output) dados para o stdout (cout).	|
+| Operador >>	| Receber (input) dados do stdin (cin).		|
+| std::endl	| Representa quebra de linha e flush do buffer. |
++---------------+-----------------------------------------------+
